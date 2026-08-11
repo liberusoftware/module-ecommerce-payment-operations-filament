@@ -1,0 +1,50 @@
+{
+    "$schema": "https://schemas.liberu.dev/module/v1.json",
+    "name": "ecommerce-payment-operations-filament",
+    "display_name": "Payment Operations Administration",
+    "description": "Optional Filament administration for the Payment Operations domain module: what a payment's ledger folds to, the ledger itself, and the three movements of money the domain publishes. There is no status field because there is no status column, no form over a payment and no edit page — a correction is a new row. No instrument and no signing secret reaches any surface.",
+    "version": "0.1.0",
+    "category": "presentation",
+    "provider": "Liberu\\Ecommerce\\PaymentOperations\\Filament\\PaymentOperationsFilamentServiceProvider",
+    "requires": {
+        "php": "^8.5",
+        "laravel": "^13.0",
+        "packages": {
+            "liberusoftware/module-manager": "^1.4",
+            "liberusoftware/ecommerce-payment-operations": "^0.1"
+        }
+    },
+    "presentation": {
+        "filament": {
+            "admin": [
+                "Liberu\\Ecommerce\\PaymentOperations\\Filament\\PaymentOperationsPlugin"
+            ]
+        }
+    },
+    "capabilities": [
+        "ecommerce.payment-operations.filament"
+    ],
+    "default_enabled": false,
+    "features": [
+        "State shown as a fold over the ledger, never as a stored column",
+        "No status field, no form, no create page, no edit page, no delete",
+        "Take the money, release the reservation, give the money back",
+        "Each movement gated on tenancy and on the ledger's own answer",
+        "Idempotency keys derived from the ledger, never minted per press",
+        "A permanent conflict and a transient claim told apart by class",
+        "Refusals surfaced verbatim, never clamped",
+        "The reconciliation queue as a filter and a badge",
+        "Impossible ledgers explained and never corrected automatically",
+        "The mixed-currency refusal stated in words rather than left blank",
+        "Provider callbacks as a reconciliation inbox",
+        "Unowned callbacks kept out, and said so on the page",
+        "No callback body and no digest on any surface",
+        "No instrument, no provider token and no signing secret anywhere",
+        "Only a public reference is searchable",
+        "Integer minor units, formatted by the domain's own string arithmetic",
+        "Every unpublished ability refused by name",
+        "Read-only relation manager over an append-only table",
+        "Team scoping",
+        "Payments bound by public reference, never by id"
+    ]
+}
